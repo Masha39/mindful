@@ -1,17 +1,123 @@
 @import "tailwindcss";
 
-/* Use class-based dark/light variants with Tailwind v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant light (&:where(.light, .light *));
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew/PPEditorialNew-Ultralight.otf")
+    format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew/PPEditorialNew-UltralightItalic.otf")
+    format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew/PPEditorialNew-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew/PPEditorialNew-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew/PPEditorialNew-Ultrabold.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew/PPEditorialNew-UltraboldItalic.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal/PPNeueMontreal-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal/PPNeueMontreal-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal/PPNeueMontreal-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal/PPNeueMontreal-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal/PPNeueMontreal-SemiBolditalic.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal/PPNeueMontreal-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 html,
 body {
   --background: #ffffff;
   --foreground: #171717;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "PP Editorial New", Arial, Helvetica, sans-serif;
 }
 
 @theme {
+  /* fonts */
+  --font-editorial: "PP Editorial New", Arial, Helvetica, sans-serif;
+  --font-neue: "PP Neue Montreal", Arial, Helvetica, sans-serif;
+
+  /* colors */
   --color-red-50: oklch(97.1% 0.013 17.38);
   --color-red-100: oklch(93.6% 0.032 17.717);
   --color-red-200: oklch(88.5% 0.062 18.334);
@@ -30,7 +136,7 @@ body {
   inset: 0;
   pointer-events: none;
   mix-blend-mode: overlay;
-  opacity: 1;
+  opacity: 0.4;
   background-repeat: repeat;
   background-size: 200px 200px;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='10' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");

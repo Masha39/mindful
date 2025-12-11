@@ -19,7 +19,7 @@ export default function Home() {
       <div className="grain-overlay"></div>
       <div className="flex flex-col min-h-screen items-center justify-center font-sans bg-[url(/gradient-optimized.webp)] bg-cover bg-center">
         {/* Navigation - Lovable style clean nav */}
-        <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-border/30">
+        <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b-1 border-black">
           <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center">
@@ -43,34 +43,22 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* Hero Section - Lovable centered layout */}
-        <section className="pt-36 pb-16 px-6 relative z-10">
+        {/* Hero Section - centered layout */}
+        <section className="flex justify-center items-center h-screen">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
-              <span className="px-2 py-0.5 rounded-md bg-primary text-primary-foreground text-xs font-semibold">
-                New
-              </span>
-              <span>AI-powered mood insights</span>
-              <ArrowRight className="w-4 h-4" />
-            </div>
-
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
-              Build something{" "}
-              <span className="inline-flex items-center gap-2">
-                <span className="text-3xl md:text-5xl">🧠</span>
-                <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-                  Mindful
-                </span>
-              </span>
-            </h1>
+            <div className="flex flex-col mb-6">
+              <h1 className="font-neue text-5xl md:text-7xl font-semi-bold text-foreground leading-[1.1] tracking-tight">
+                Understand your emotions
+              </h1>
+              <h1 className="font-editorial italic text-5xl md:text-7xl bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent ">
+                one sentence at a time
+              </h1>
+            </div>
 
             {/* Subtitle */}
             <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-12 leading-relaxed">
-              Track your mood daily with emojis and one sentence.
-              <br />
-              Discover patterns in how you feel.
+              Track your mood daily, reflect monthly
             </p>
 
             {/* Chat Input Box - Lovable signature element */}
@@ -97,6 +85,124 @@ export default function Home() {
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section - Lovable style card grid */}
+        <section className="py-16 px-6 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-card/80 backdrop-blur-sm rounded-3xl border border-border/50 p-8 md:p-12">
+              <p className="text-sm font-medium text-muted-foreground mb-4">
+                From the Community
+              </p>
+
+              {/* Filter Pills */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                <button className="px-4 py-2 rounded-lg bg-secondary border border-border text-sm font-medium text-foreground">
+                  Featured
+                </button>
+                {[
+                  "Daily Check-ins",
+                  "Insights",
+                  "Monthly Wrapped",
+                  "Streaks",
+                ].map((filter) => (
+                  <button
+                    key={filter}
+                    className="px-4 py-2 rounded-lg border border-border text-sm font-medium text-muted-foreground hover:bg-secondary transition-colors"
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+
+              {/* Feature Cards Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <FeatureCard
+                  icon={<Heart className="w-5 h-5" />}
+                  title="Daily Check-ins"
+                  description="Pick an emoji, write one sentence. Takes 30 seconds."
+                  gradient="from-rose-400 to-pink-500"
+                />
+                <FeatureCard
+                  icon={<TrendingUp className="w-5 h-5" />}
+                  title="Mood Insights"
+                  description="Discover patterns in your emotional well-being."
+                  gradient="from-blue-400 to-cyan-500"
+                />
+                <FeatureCard
+                  icon={<Calendar className="w-5 h-5" />}
+                  title="Monthly Wrapped"
+                  description="Beautiful summary of your month, Spotify style."
+                  gradient="from-orange-400 to-amber-500"
+                />
+                <FeatureCard
+                  icon={<Sparkles className="w-5 h-5" />}
+                  title="AI Insights"
+                  description="Get personalized observations about your moods."
+                  gradient="from-purple-400 to-indigo-500"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section - Lovable style card grid */}
+        <section className="py-16 px-6 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-card/80 backdrop-blur-sm rounded-3xl border border-border/50 p-8 md:p-12">
+              <p className="text-sm font-medium text-muted-foreground mb-4">
+                From the Community
+              </p>
+
+              {/* Filter Pills */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                <button className="px-4 py-2 rounded-lg bg-secondary border border-border text-sm font-medium text-foreground">
+                  Featured
+                </button>
+                {[
+                  "Daily Check-ins",
+                  "Insights",
+                  "Monthly Wrapped",
+                  "Streaks",
+                ].map((filter) => (
+                  <button
+                    key={filter}
+                    className="px-4 py-2 rounded-lg border border-border text-sm font-medium text-muted-foreground hover:bg-secondary transition-colors"
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+
+              {/* Feature Cards Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <FeatureCard
+                  icon={<Heart className="w-5 h-5" />}
+                  title="Daily Check-ins"
+                  description="Pick an emoji, write one sentence. Takes 30 seconds."
+                  gradient="from-rose-400 to-pink-500"
+                />
+                <FeatureCard
+                  icon={<TrendingUp className="w-5 h-5" />}
+                  title="Mood Insights"
+                  description="Discover patterns in your emotional well-being."
+                  gradient="from-blue-400 to-cyan-500"
+                />
+                <FeatureCard
+                  icon={<Calendar className="w-5 h-5" />}
+                  title="Monthly Wrapped"
+                  description="Beautiful summary of your month, Spotify style."
+                  gradient="from-orange-400 to-amber-500"
+                />
+                <FeatureCard
+                  icon={<Sparkles className="w-5 h-5" />}
+                  title="AI Insights"
+                  description="Get personalized observations about your moods."
+                  gradient="from-purple-400 to-indigo-500"
+                />
               </div>
             </div>
           </div>
