@@ -11,7 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { z } from "zod";
@@ -51,7 +50,7 @@ export const LoginCard = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     signInWithEmailAndPassword(auth, values.email, values.password)
-      .then((authUser) => {
+      .then(() => {
         router.push("/");
       })
       .catch((error) => {

@@ -8,6 +8,7 @@ import { Calendar } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useAuth } from "@/src/contexts/AuthContext";
+import { getAuth, signOut } from "firebase/auth";
 
 const ThemeSwitch = dynamic(() => import("@/src/components/ThemeSwitch"), {
   ssr: false,
@@ -16,6 +17,11 @@ const ThemeSwitch = dynamic(() => import("@/src/components/ThemeSwitch"), {
 
 export default function Home() {
   const { user } = useAuth();
+  const auth = getAuth();
+
+  function logOut() {
+    signOut(auth).then(() => console.log("signed out"));
+  }
 
   return (
     <div className="relative min-h-screen w-full">
@@ -39,7 +45,10 @@ export default function Home() {
               {user ? (
                 <>
                   <span>{user.displayName}</span>
-                  <button className="text-foreground font-medium">
+                  <button
+                    className="text-foreground font-medium"
+                    onClick={() => logOut()}
+                  >
                     Log out
                   </button>
                 </>
