@@ -24,6 +24,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
+import { auth } from "../../app/firebase";
+import { useState } from "react";
 
 export const title = "Signup Form";
 
@@ -48,6 +52,10 @@ const formSchema = z.object({
 });
 
 export const SignUpCard = () => {
+  const router = useRouter();
+
+  const [error, setError] = useState();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,6 +68,15 @@ export const SignUpCard = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then((authUser) => {
+        console.log("Success. The user is created in Firebase");
+        router.push("/");
+      })
+      .catch((error) => {
+        // An error occurred. Set error message to be displayed to user
+        setError(error.message);
+      });
   }
 
   return (
