@@ -29,8 +29,6 @@ import { useRouter } from "next/navigation";
 import { auth } from "../../app/firebase";
 import { useState } from "react";
 
-export const title = "Signup Form";
-
 const formSchema = z.object({
   fullName: z.string().min(2, {
     message: "Name must be at least 2 characters.",
@@ -52,9 +50,9 @@ const formSchema = z.object({
 });
 
 export const SignUpCard = () => {
-  const router = useRouter();
+  const [error, setError] = useState("");
 
-  const [error, setError] = useState();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

@@ -7,6 +7,7 @@ import { TrendingUp } from "lucide-react";
 import { Calendar } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import dynamic from "next/dynamic";
+import { useAuth } from "@/src/contexts/AuthContext";
 
 const ThemeSwitch = dynamic(() => import("@/src/components/ThemeSwitch"), {
   ssr: false,
@@ -14,6 +15,8 @@ const ThemeSwitch = dynamic(() => import("@/src/components/ThemeSwitch"), {
 });
 
 export default function Home() {
+  const { user } = useAuth();
+
   return (
     <div className="relative min-h-screen w-full">
       {/* <div className="grain-overlay"></div> */}
@@ -31,9 +34,23 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-4">
               <ThemeSwitch />
-              <Link href="/login">
-                <button className="text-foreground font-medium">Log in</button>
-              </Link>
+
+              {/*TODO: replace with avatar  */}
+              {user ? (
+                <>
+                  <span>{user.displayName}</span>
+                  <button className="text-foreground font-medium">
+                    Log out
+                  </button>
+                </>
+              ) : (
+                <Link href="/login">
+                  <button className="text-foreground font-medium">
+                    Log in
+                  </button>
+                </Link>
+              )}
+
               <Link href="/dashboard">
                 <button className="bg-foreground text-background hover:bg-foreground/90 font-medium px-5 rounded-xl">
                   Get started
