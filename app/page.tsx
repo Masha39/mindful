@@ -31,7 +31,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-4">
               <ThemeSwitch />
-              <Link href="/dashboard">
+              <Link href="/login">
                 <button className="text-foreground font-medium">Log in</button>
               </Link>
               <Link href="/dashboard">

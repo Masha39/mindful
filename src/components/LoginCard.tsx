@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
 export const title = "Login Card";
 
@@ -20,7 +21,7 @@ const LoginCard = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full max-w-md font-neue">
       <CardHeader>
         <CardTitle>Login to your account</CardTitle>
         <CardDescription>
@@ -60,9 +61,9 @@ const LoginCard = () => {
       <CardFooter className="flex justify-center">
         <p className="text-muted-foreground text-sm">
           Don't have an account?{" "}
-          <a className="underline" href="#">
+          <Link className="underline" href="signup">
             Sign up
-          </a>
+          </Link>
         </p>
       </CardFooter>
     </Card>
