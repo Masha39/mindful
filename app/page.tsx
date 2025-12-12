@@ -16,9 +16,9 @@ const ThemeSwitch = dynamic(() => import("@/src/components/ThemeSwitch"), {
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full">
-      <div className="grain-overlay"></div>
+      {/* <div className="grain-overlay"></div> */}
       <div className="flex flex-col min-h-screen items-center justify-center font-sans bg-[url(/gradient-optimized.webp)] bg-cover bg-center">
-        {/* Navigation - Lovable style clean nav */}
+        {/* Navigation */}
         <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b-1 border-black">
           <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -26,7 +26,7 @@ export default function Home() {
                 <span className="text-white text-sm">🧠</span>
               </div>
               <span className="font-semibold text-lg text-foreground">
-                Micro Mood
+                Mindful
               </span>
             </div>
             <div className="flex items-center gap-4">
@@ -44,14 +44,14 @@ export default function Home() {
         </nav>
 
         {/* Hero Section - centered layout */}
-        <section className="flex justify-center items-center h-screen">
+        <section className="flex justify-center items-center h-screen pt-16">
           <div className="max-w-4xl mx-auto text-center">
             {/* Main Headline */}
             <div className="flex flex-col mb-6">
-              <h1 className="font-neue text-5xl md:text-7xl font-semi-bold text-foreground leading-[1.1] tracking-tight">
+              <h1 className="font-neue text-4xl md:text-6xl font-semi-bold text-foreground leading-[1.1] tracking-tight mb-1">
                 Understand your emotions
               </h1>
-              <h1 className="font-editorial italic text-5xl md:text-7xl bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent ">
+              <h1 className="font-editorial italic text-4xl md:text-6xl bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent ">
                 one sentence at a time
               </h1>
             </div>
