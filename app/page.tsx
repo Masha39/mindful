@@ -1,5 +1,5 @@
 "use client";
-import { Sun, Moon } from "lucide-react";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Heart } from "lucide-react";
@@ -9,6 +9,7 @@ import { Sparkles } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { getAuth, signOut } from "firebase/auth";
+import { MoodInput } from "@/src/components/MoodInput";
 
 const ThemeSwitch = dynamic(() => import("@/src/components/ThemeSwitch"), {
   ssr: false,
@@ -87,32 +88,8 @@ export default function Home() {
               Track your mood daily, reflect monthly
             </p>
 
-            {/* Chat Input Box - Lovable signature element */}
-            <div className="max-w-2xl mx-auto mb-16">
-              <div className="bg-card rounded-2xl shadow-xl border border-border/50 p-4">
-                <div className="text-left text-muted-foreground mb-4 px-2">
-                  How are you feeling today?
-                </div>
-                <div className="flex items-center gap-3 px-2">
-                  <button className="p-2 rounded-lg hover:bg-secondary transition-colors">
-                    <span className="text-xl">+</span>
-                  </button>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border text-sm text-muted-foreground">
-                    <span className="text-lg">😊</span>
-                    Mood
-                  </div>
-                  <div className="flex-1" />
-                  <Link href="/dashboard">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-4 gap-2">
-                      <span className="text-sm">Start</span>
-                    </button>
-                  </Link>
-                  <button className="p-2 rounded-lg bg-gradient-to-r from-orange-400 to-pink-500 text-white">
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </div>
+            {/* Chat Input Box */}
+            <MoodInput />
           </div>
         </section>
 
@@ -304,7 +281,7 @@ export default function Home() {
             </p>
             <Link href="/dashboard">
               <button className="px-8 py-6 text-lg bg-foreground text-background hover:bg-foreground/90 font-medium rounded-xl gap-2">
-                Get Started — It's Free
+                Get Started — It&apos;s Free
                 <ArrowRight className="w-5 h-5" />
               </button>
             </Link>
